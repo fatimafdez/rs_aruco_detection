@@ -11,6 +11,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/opencv.hpp>
 #include <opencv2/aruco.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 
 #define ROS_TOPIC_BUFFER_SIZE 1
@@ -30,7 +31,7 @@ class ArucoMarkerPosition
     private: // why 2 private parts?
         // Private methods
         void detectArucosImages(const sensor_msgs::ImageConstPtr& msg); 
-        void publishArucoPositions(const sensor_msgs::ImageConstPtr& msg);
+        //void publishArucoPositions(const sensor_msgs::ImageConstPtr& msg);
         
     private:
         // Private attributes
