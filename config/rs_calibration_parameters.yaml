@@ -1,0 +1,7 @@
+%YAML:1.0
+
+color:
+  intrinsics: [906.64027, 908.00455,  # fx, fy
+               627.36092, 366.51433]  # cx, cy
+  distortion_coefficients: [0.130468, -0.256998, -0.002236, -0.002475] # k1, k2, p1, p2
+  resolution: [1280, 720]
