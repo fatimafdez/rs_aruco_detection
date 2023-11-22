@@ -13,18 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(OpenCV REQUIRED)
 
-
-################################################
-## Declare ROS messages, services and actions ##
-################################################
-
-## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
-
-
 # --- catkin specific configuration ---
 
 catkin_package(
@@ -87,10 +75,6 @@ target_link_libraries(${PROJECT_NAME}_node2 ${PROJECT_NAME})
 #add_executable(rs_aruco_position src/ArucoPosition.cpp)
 #target_link_libraries(rs_aruco_position ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 #add_dependencies(rs_aruco_position ${catkin_EXPORTED_TARGETS})
-
-
-
-
 
 
 ## Declare a C++ library
