@@ -1,20 +1,24 @@
 <launch>
 
     <!-- ROS related configuration -->
-    <arg name="rs_image_topic" default="/suministra_rs/color/image_raw" />
-    <!--arg name="example_topic2" default="/topic2" /-->
+    <arg name="rs_image_topic"      default="/suministra_rs/color/image_raw" />
+    <arg name="aruco_pose_topic"    default="/rs_aruco_detection/aruco_pose" />
 
     <!-- Calibration file of realsense camera-->
-    <arg name="calibration_file" default="$(find rs_aruco_detection)/config/rs_calibration_parameters.yaml" />
+    <arg name="calibration_file"    default="$(find rs_aruco_detection)/config/rs_calibration_parameters.yaml" />
+
+    <!-- Markers configuration file -->
+    <arg name="markers_length_file" default="$(find rs_aruco_detection)/config/markers_configuration.yaml" />
 
     <!-- Setting up log level -->
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find rs_aruco_detection)/config/rosconsole.conf"/>
     
     <!-- Launching node with the configuration -->
     <node name="rs_aruco_detection" pkg="rs_aruco_detection" type="rs_aruco_detection_node" output="screen">
-        <param name="rs_image_topic"  value="$(arg rs_image_topic)" />
-        <param name="calib_file_path"    value="$(arg calibration_file)" />
-        <!--rosparam command="load"    file="$(arg calibration_file)"/-->
+        <param name="rs_image_topic"        value="$(arg rs_image_topic)" />
+        <param name="aruco_pose_topic"      value="$(arg aruco_pose_topic)" />
+        <param name="calibration_file"      value="$(arg calibration_file)" />
+        <param name="markers_length_file"   value="$(arg markers_length_file)" />
     </node>
 
 </launch>

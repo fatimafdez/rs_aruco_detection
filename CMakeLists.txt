@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   roscpp
   std_msgs
+  suministra_msgs
 )
 
 find_package(OpenCV REQUIRED)
@@ -40,6 +41,7 @@ IF(NOT ${CMAKE_BUILD_TYPE} STREQUAL "Debug" AND
 ENDIF()
 
 # --- include directories ---
+
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
@@ -48,12 +50,14 @@ include_directories(
 
 
 # --- Link directories ---
+
 link_directories(
   include
   ${catkin_LIBRARY_DIRS}
 )
 
 # --- Build ---
+
 file(GLOB_RECURSE SRC_INCS "include/${PROJECT_NAME}/*.h*")
 file(GLOB_RECURSE SRC_SRCS "src/*.c*")
 file(GLOB_RECURSE SRC_HDRS "src/*.h*")
@@ -65,43 +69,9 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_executable(${PROJECT_NAME}_node utils/rs_aruco_position.cpp)
 target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME})
 
-add_executable(${PROJECT_NAME}_node2 src/aruco_detector.cpp)
-target_link_libraries(${PROJECT_NAME}_node2 ${PROJECT_NAME})
 
-#add_executable(rs_aruco_detector src/aruco_detector.cpp)
-#target_link_libraries(rs_aruco_detector ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-#add_dependencies(rs_aruco_detector ${catkin_EXPORTED_TARGETS})
+# --- Install ---
 
-#add_executable(rs_aruco_position src/ArucoPosition.cpp)
-#target_link_libraries(rs_aruco_position ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-#add_dependencies(rs_aruco_position ${catkin_EXPORTED_TARGETS})
-
-
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/rs_aruco_detection.cpp
-# )
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
-
-#############
-## Install ##
-#############
-
-
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
 install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

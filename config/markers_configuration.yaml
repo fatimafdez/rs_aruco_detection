@@ -1,0 +1,6 @@
+%YAML:1.0
+
+markers:
+  ids: [0, 2, 11, 33, 37, -1]
+  lengths: [0.132, 0.066, 0.132, 0.066, 0.066, -1]
+  frames: ['ar_marker_0', 'ar_marker_2', 'ar_marker_11', 'ar_marker_33', 'ar_marker_37','not_useful']
